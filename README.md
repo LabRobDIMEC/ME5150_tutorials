@@ -1,6 +1,6 @@
 # ME5150_tutorials
 ## Guía de instalación:
-- Clonar repositorio en tu computador: `git clone https://github.com/lesliee_cv/ME5150_tutorials.git`
+- Clonar repositorio en tu computador: `git clone https://github.com/LabRobDIMEC/ME5150_tutorials.git`
 - Abrir consola de anaconda
 - Actualizar anaconda si ya tienes una versión antigua: `conda update --all`
 - Navegar hasta la carpeta ME5150_tutorials usando el comando `cd`
