@@ -93,9 +93,9 @@ def NewtonRaphson(f, q0, pd, tol=1e-3, max_iter=1000):
         if np.abs(np.linalg.det(jacobiano_val)) > tol:
             q_new = np.zeros(3) # MODIFICAR
 
-        # Si el determinante es cercano a 0, se agrega ruido al vector theta, para que no diverja 
+        # Si el determinante es cercano a 0, se agrega ruido al vector q_new, para que no diverja 
         else:
-            q_new = q + np.random.rand(len(q)) #se mueve theta aleatoriamente
+            q_new = q + np.random.rand(len(q)) #se mueve q aleatoriamente
 
         # Paso 5: Condición de convergencia
         # Si la norma de la diferencia entre q_new y q es menor que la tolerancia, se alcanzó la convergencia
