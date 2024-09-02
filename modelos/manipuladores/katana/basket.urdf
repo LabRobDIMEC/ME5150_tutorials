@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<robot name="basket_with_visible_collision">
+
+  <link name="basket">
+    
+    <!-- Geometría visual del canasto original -->
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57 0 0" />
+      <geometry>
+        <mesh filename="package://katana/katana/stackable_basket_original_L.stl" scale="0.0007 0.0007 0.0007"/>
+      </geometry>
+      <material name="red">
+        <color rgba="0.753 0.157 0.094 1.0"/>
+      </material>
+    </visual>
+
+<collision>
+    <!-- Fondo del canasto -->
+    <origin xyz="0.09 -0.075 0" rpy="0 0 0" />
+    <geometry>
+        <box size="0.17 0.13 0.01"/>
+    </geometry>
+</collision>
+<collision>
+    <!-- Lado 1 del canasto -->
+    <origin xyz="0.09 -0.01 0.05" rpy="0 0 0" />
+    <geometry>
+        <box size="0.17 0.01 0.07"/>
+    </geometry>
+</collision>
+<collision>
+    <!-- Lado 2 del canasto -->
+    <origin xyz="0.09 -0.14 0.05" rpy="0 0 0" />
+    <geometry>
+        <box size="0.17 0.01 0.07"/>
+    </geometry>
+</collision>
+<collision>
+    <!-- Lado 3 del canasto -->
+    <origin xyz="0.005 -0.07 0.05" rpy="0 0 0" />
+    <geometry>
+        <box size="0.005 0.14 0.07"/>
+    </geometry>
+</collision>
+<collision>
+    <!-- Lado 4 del canasto -->
+    <origin xyz="0.175 -0.07 0.05" rpy="0 0 0" />
+    <geometry>
+        <box size="0.01 0.14 0.07"/>
+    </geometry>
+</collision>
+       
+        <!-- Inercia del canasto -->
+    <inertial>
+      <mass value="1.4047990875" />
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" 
+        iyy="0.1" iyz="0" 
+        izz="0.1" />
+    </inertial>
+    
+  </link>
+
+</robot>
