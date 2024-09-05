@@ -12,7 +12,7 @@ p.setGravity(0, 0, -9.81)
 
 planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("modelos/manipuladores/katana/katana.urdf", basePosition=[0, 0, 0], useFixedBase=useFixedBase)
-football_pitch = p.loadURDF("modelos/manipuladores/katana/football_pitch.urdf", basePosition=[-0.6, 0.68, 0.1],useFixedBase=True)
+football_pitch = p.loadURDF("modelos/manipuladores/katana/football_pitch.urdf", basePosition=[1, 1.08, 0.1],useFixedBase=True)
 duck1 = p.loadURDF("modelos/manipuladores/katana/duck_vhacd.urdf", basePosition=[0.6, -0.1, 0.15],useFixedBase=True)
 duck2 = p.loadURDF("modelos/manipuladores/katana/duck_vhacd.urdf", basePosition=[0.3, 0.1, 0.1],useFixedBase=True)
 duck3 = p.loadURDF("modelos/manipuladores/katana/duck_orange.urdf", basePosition=[0.5, 0.15, 0.1],useFixedBase=True)
@@ -41,6 +41,20 @@ for i in range(num_joints):
             print(f"Joint {i}: {joint_name}")
     if "finger" in joint_name:
         gripper_joints.append(i)
+        print(f"Joint {i}: {joint_name}, lower limit", p.getJointInfo(robotId, i)[8])
+        print(f"Joint {i}: {joint_name}, upper limit", p.getJointInfo(robotId, i)[9])
+
+#setear parametros para que el gripper funcione correctamente
+gripper_r_joint_index= 6
+gripper_l_joint_index= 7
+
+target_position_closed= 0.03 #quizas cambiar por el radio de la pelota
+target_position_open= 0.2
+max_force= 5
+
+p.setJointMotorControl2(robotId, gripper_r_joint_index, p.POSITION_CONTROL, targetPosition= target_position_closed, force= max_force)
+p.setJointMotorControl2(robotId, gripper_l_joint_index, p.POSITION_CONTROL, targetPosition= -target_position_closed, force= max_force)
+
 
 
 sliders = [p.addUserDebugParameter(f"Link {i+1}", -np.pi, np.pi, 0) for i in range(len(movable_joints))]
@@ -48,13 +62,36 @@ gripper_slider = p.addUserDebugParameter("Gripper", -1, 1, 0)
 
 # Bucle principal de la simulación
 while True:
-    q = [p.readUserDebugParameter(slider) for slider in sliders]
-    gripper_value=p.readUserDebugParameter(gripper_slider)
-    p.setJointMotorControlArray(robotId, movable_joints, p.POSITION_CONTROL, targetPositions=q)
-    if gripper_joints:
-        gripper_positions = [gripper_value] * len(gripper_joints)
-        p.setJointMotorControlArray(robotId, gripper_joints, p.POSITION_CONTROL, targetPositions=gripper_positions)   
+    # Avanza un paso en la simulación
     p.stepSimulation()
-    time.sleep(1 / 240)
+    
+    # Lógica para controlar el gripper, por ejemplo con una condición
+    # (Esto es solo un ejemplo; puedes ajustar cuándo ejecutas esta acción)
+    current_time = time.time()
+    
+    if current_time % 10 < 5:  # Cierra el gripper cada 5 segundos
+        p.setJointMotorControl2(bodyUniqueId=robotId,
+                                jointIndex=gripper_r_joint_index,
+                                controlMode=p.POSITION_CONTROL,
+                                targetPosition=target_position_closed,
+                                force=max_force)
+        
+        p.setJointMotorControl2(bodyUniqueId=robotId,
+                                jointIndex=gripper_l_joint_index,
+                                controlMode=p.POSITION_CONTROL,
+                                targetPosition=target_position_closed,
+                                force=max_force)
+    else:  # Abre el gripper los siguientes 5 segundos
+        p.setJointMotorControl2(bodyUniqueId=robotId,
+                                jointIndex=gripper_r_joint_index,
+                                controlMode=p.POSITION_CONTROL,
+                                targetPosition=target_position_open,
+                                force=max_force)
+        
+        p.setJointMotorControl2(bodyUniqueId=robotId,
+                                jointIndex=gripper_l_joint_index,
+                                controlMode=p.POSITION_CONTROL,
+                                targetPosition=target_position_open,
+                                force=max_force)
 
- 
+    time.sleep(1. / 240.)  # El tiempo entre pasos de simulación
