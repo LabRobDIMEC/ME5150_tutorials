@@ -95,7 +95,7 @@ def move_gripper(robot_id, target_position):
     
     # Ajustar la posición objetivo para evitar colisiones
     if detect_collisions(robot_id, collision_objects):
-        print("Colisión detectada. Ajustando trayectoria.")
+        #print("Colisión detectada. Ajustando trayectoria.")
         target_position = adjust_target_position(target_position, collision_objects)
     
     # Calcular la cinemática inversa para obtener las posiciones de las juntas

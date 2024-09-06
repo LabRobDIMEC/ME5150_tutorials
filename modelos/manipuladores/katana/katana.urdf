@@ -256,9 +256,15 @@
       <material name="grey" />
     </visual>
     <collision>
-      <origin rpy="0 0 0.436332" xyz="0.07 0.037 0"/>
+      <origin rpy="0 0 0.610865" xyz="0.025 0.025 0"/>
       <geometry>
-        <box size="0.03 0.005 0.02"/>
+        <box size="0.05 0.005 0.02"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 -0.523599" xyz="0.06 0.035 0"/>
+      <geometry>
+        <box size="0.02 0.005 0.02"/>
       </geometry>
     </collision>
     <inertial>
@@ -269,7 +275,6 @@
         izz="0.000023588" />        
     </inertial>
   </link>
-
 
   <!-- Joint Dedo Izquierdo -->
   <joint name="katana_l_finger_joint" type="revolute">
@@ -290,9 +295,15 @@
       <material name="grey" />
     </visual>
     <collision>
-      <origin rpy="0 0 0.436332" xyz="0.07 0.037 0"/>
+      <origin rpy="0 0 0.610865" xyz="0.025 0.025 0"/>
       <geometry>
-        <box size="0.03 0.005 0.02"/>
+        <box size="0.05 0.005 0.02"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 -0.523599" xyz="0.06 0.035 0"/>
+      <geometry>
+        <box size="0.02 0.005 0.02"/>
       </geometry>
     </collision>
     <inertial>
