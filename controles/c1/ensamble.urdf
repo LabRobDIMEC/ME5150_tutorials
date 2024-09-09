@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<robot name="ensamble">
+
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.6490572120600742e-14 1.83228579117786e-17 0.006202531645569622" rpy="0 0 0"/>
+    <mass value="0.9741293420618535"/>
+    <inertia ixx="0.0017884833498908012" iyy="0.0017884833498411374" izz="0.003540120125996522" ixy="3.569766704458449e-18" iyz="1.1070795475853067e-19" ixz="-1.9317408432355884e-17"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Brazo_3DOF_v51">
+  <inertial>
+    <origin xyz="0.0520009153647729 0.057660921839357976 0.0" rpy="0 0 0"/>
+    <mass value="3.174908514931175"/>
+    <inertia ixx="0.01899719876263406" iyy="0.00784255360707442" izz="0.01971982292037229" ixy="0.00036630387759239297" iyz="6.938893903907228e-18" ixz="1.3877787807814457e-17"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.065 -0.0 -0.32" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/Brazo_3DOF_v51.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.065 -0.0 -0.32" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/Brazo_3DOF_v51.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Prismatico_3DOF_v11">
+  <inertial>
+    <origin xyz="-1.0685896612017132e-15 4.440892098500626e-16 0.0" rpy="0 0 0"/>
+    <mass value="3.702562646450509"/>
+    <inertia ixx="0.027620353813103626" iyy="0.0009300113776765095" izz="0.02762035381310382" ixy="1.3877787807814457e-17" iyz="2.7755575615628914e-17" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.115 -0.175 -0.32" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/Prismatico_3DOF_v11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.115 -0.175 -0.32" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/Prismatico_3DOF_v11.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="PILAR_3DOF_v21">
+  <inertial>
+    <origin xyz="-0.005067937119229189 7.897066667282554e-09 0.18971174437598187" rpy="0 0 0"/>
+    <mass value="5.286674605460273"/>
+    <inertia ixx="0.06805820699537785" iyy="0.06952688621146874" izz="0.012937645223035851" ixy="-8.318049757370474e-10" iyz="-1.3535355466676922e-08" ixz="0.002954895183483878"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/PILAR_3DOF_v21.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+    <material/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="meshes/PILAR_3DOF_v21.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute_2" type="continuous">
+  <origin xyz="0.065 0.0 0.3" rpy="0 0 0"/>
+  <parent link="PILAR_3DOF_v21"/>
+  <child link="Brazo_3DOF_v51"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+<transmission name="Revolute_2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Revolute_2">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Revolute_2_actr">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<joint name="Slider_3" type="prismatic">
+  <origin xyz="0.05 0.175 0.0" rpy="0 0 0"/>
+  <parent link="Brazo_3DOF_v51"/>
+  <child link="Prismatico_3DOF_v11"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="0.03" lower="-0.05" effort="100" velocity="100"/>
+</joint>
+<transmission name="Slider_3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Slider_3">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Slider_3_actr">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<joint name="Revolute_4" type="continuous">
+  <origin xyz="0.0 0.0 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="PILAR_3DOF_v21"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+<transmission name="Revolute_4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Revolute_4">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Revolute_4_actr">
+    <hardwareInterface>PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
