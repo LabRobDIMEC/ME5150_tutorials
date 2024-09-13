@@ -12,14 +12,10 @@ p.setGravity(0, 0, -9.81)
 
 planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("modelos/manipuladores/katana/katana.urdf", basePosition=[0, 0, 0], useFixedBase=useFixedBase)
-football_pitch = p.loadURDF("modelos/manipuladores/katana/football_pitch.urdf", basePosition=[1, 1.08, 0.1],useFixedBase=True)
-duck1 = p.loadURDF("modelos/manipuladores/katana/duck_vhacd.urdf", basePosition=[0.6, -0.1, 0.15],useFixedBase=True)
-duck2 = p.loadURDF("modelos/manipuladores/katana/duck_vhacd.urdf", basePosition=[0.3, 0.1, 0.1],useFixedBase=True)
-duck3 = p.loadURDF("modelos/manipuladores/katana/duck_orange.urdf", basePosition=[0.5, 0.15, 0.1],useFixedBase=True)
-duck3 = p.loadURDF("modelos/manipuladores/katana/duck_orange.urdf", basePosition=[0.4, -0.1, 0.3],useFixedBase=True)
-soccerball1 = p.loadURDF("modelos/manipuladores/katana/soccerball.urdf", basePosition=[0.19, -0.31, 0.2],useFixedBase=False)
-soccerball2 = p.loadURDF("modelos/manipuladores/katana/soccerball.urdf", basePosition=[0.2, -0.32, 0.2],useFixedBase=False)
-soccerball = p.loadURDF("modelos/manipuladores/katana/soccerball.urdf", basePosition=[0.19, -0.31, 0.2],useFixedBase=False)
+football_pitch = p.loadURDF("modelos/manipuladores/katana/football_pitch.urdf", basePosition=[1, 1.08, 0],useFixedBase=True)
+duck2 = p.loadURDF("modelos/manipuladores/katana/duck_orange.urdf", basePosition=[0.28, -0.2, 0],useFixedBase=True)
+duck3 = p.loadURDF("modelos/manipuladores/katana/duck_vhacd.urdf", basePosition=[0.4, 0, 0],useFixedBase=True)
+duck4 = p.loadURDF("modelos/manipuladores/katana/duck_orange.urdf", basePosition=[0.25, 0.18, 0],useFixedBase=True)
 basket = p.loadURDF("modelos/manipuladores/katana/basket.urdf", basePosition=[0.1, -0.3, 0.15],useFixedBase=True)
 
 angle= -0.785398
@@ -34,7 +30,8 @@ for i in range(num_joints):
     joint_info = p.getJointInfo(robotId, i)
     joint_type = joint_info[2]
     joint_name = joint_info[1].decode('utf-8')
-    
+    link_name = joint_info[12].decode('utf-8')  # Nombre del link
+    print(f"Joint {i}: {joint_name}, Link {i}: {link_name}")
     if joint_type != p.JOINT_FIXED:  # Excluir articulaciones fijas
         if "finger" not in joint_name:
             movable_joints.append(i)
