@@ -15,6 +15,14 @@ def main():
         if not ret:
             break
         
+        # ADD PREPROCESSING HERE
+
+
+        # ADD PROCESSING HERE
+
+
+        # Recuerda que debes cambiar el nombre de la imagen que se muestra
+
         # Show the frame
         cv2.imshow('frame', frame)
         cv2.waitKey(1)
