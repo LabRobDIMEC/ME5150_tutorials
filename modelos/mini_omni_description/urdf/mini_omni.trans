@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="mini_omni" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="w4_to_m4_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="w4_to_m4">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="w4_to_m4_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="w3_to_m3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="w3_to_m3">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="w3_to_m3_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="w2_to_m2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="w2_to_m2">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="w2_to_m2_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="w1_to_m1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="w1_to_m1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="w1_to_m1_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

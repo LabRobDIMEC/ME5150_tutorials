@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find mini_omni_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="mini_omni" args="w4_to_m4_position_controller w3_to_m3_position_controller w2_to_m2_position_controller w1_to_m1_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/mini_omni/joint_states"/>
+</node>
+
+</launch>
