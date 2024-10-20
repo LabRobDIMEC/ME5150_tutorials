@@ -1,0 +1,250 @@
+<?xml version="1.0" ?>
+<robot name="mini_omni" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000"/>
+  </material>
+  <material name="green">
+    <color rgba="0.71 0.95 0.84 1.0"/>
+  </material>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.005145812541385679 -7.638930890681272e-07 0.03779646096221236" rpy="0 0 0"/>
+      <mass value="17.060669540235605"/>
+      <inertia ixx="0.051413" iyy="0.045565" izz="0.077797" ixy="0.0" iyz="-1e-06" ixz="0.001401"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_omni/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_omni/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m1_1">
+    <inertial>
+      <origin xyz="0.01054921147026934 0.008028074931659187 -0.008599978168810276" rpy="0 0 0"/>
+      <mass value="0.25963404717991184"/>
+      <inertia ixx="0.000137" iyy="2e-05" izz="0.000137" ixy="8e-06" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.03994 -0.0198 0.0073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_omni/meshes/m1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.03994 -0.0198 0.0073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_omni/meshes/m1_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="m2_1">
+    <inertial>
+      <origin xyz="0.008028074931659034 -0.010549211470269486 -0.00859997816881029" rpy="0 0 0"/>
+      <mass value="0.25963404717991184"/>
+      <inertia ixx="2e-05" iyy="0.000137" izz="0.000137" ixy="-8e-06" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0198 0.03994 0.0073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_omni/meshes/m2_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.0198 0.03994 0.0073" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mini_omni/meshes/m2_1.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+
+<link name="m4_1">
+  <inertial>
+    <origin xyz="-0.008028074931659017 0.010549211470269465 0.008600021831190123" rpy="0 0 0"/>
+    <mass value="0.25963404717991184"/>
+    <inertia ixx="2e-05" iyy="0.000137" izz="0.000137" ixy="-8e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0198 -0.03994 0.0245" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/m4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0198 -0.03994 0.0245" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/m4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="m3_1">
+  <inertial>
+    <origin xyz="-0.010549211470269396 -0.008028074931659183 -0.008599978168810321" rpy="0 0 0"/>
+    <mass value="0.25963404717991184"/>
+    <inertia ixx="0.000137" iyy="2e-05" izz="0.000137" ixy="8e-06" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.03994 0.0198 0.0073" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/m3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.03994 0.0198 0.0073" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/m3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="w4_1">
+  <inertial>
+    <origin xyz="1.9295475332023588e-09 0.012176435771347485 1.6744108426169912e-09" rpy="0 0 0"/>
+    <mass value="0.36553443900128696"/>
+    <inertia ixx="8.9e-05" iyy="0.00014" izz="8.9e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.06974 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.06974 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="w3_1">
+  <inertial>
+    <origin xyz="-0.012176435771347832 1.929547367526829e-09 1.6744103950583344e-09" rpy="0 0 0"/>
+    <mass value="0.36553443900128696"/>
+    <inertia ixx="0.00014" iyy="8.9e-05" izz="8.9e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06974 -0.0 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06974 -0.0 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="w2_1">
+  <inertial>
+    <origin xyz="-1.92954749323433e-09 -0.012176435771347555 1.674410429752804e-09" rpy="0 0 0"/>
+    <mass value="0.36553443900128696"/>
+    <inertia ixx="8.9e-05" iyy="0.00014" izz="8.9e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.06974 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.06974 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="w1_1">
+  <inertial>
+    <origin xyz="0.012176435771347804 -1.9295472439111125e-09 1.6744104366916979e-09" rpy="0 0 0"/>
+    <mass value="0.36553443900128696"/>
+    <inertia ixx="0.00014" iyy="8.9e-05" izz="8.9e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.06974 0.0 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.06974 0.0 0.0159" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mini_omni/meshes/w1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="base_link_to_m1" type="fixed">
+  <origin xyz="0.03994 0.0198 -0.0073" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m1_1"/>
+</joint>
+
+<joint name="base_link_to_m2" type="fixed">
+  <origin xyz="0.0198 -0.03994 -0.0073" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m2_1"/>
+</joint>
+
+<joint name="base_link_to_m4" type="fixed">
+  <origin xyz="-0.0198 0.03994 -0.0245" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m4_1"/>
+</joint>
+
+<joint name="base_link_to_m3" type="fixed">
+  <origin xyz="-0.03994 -0.0198 -0.0073" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="m3_1"/>
+</joint>
+
+<joint name="w4_to_m4" type="continuous">
+  <origin xyz="0.0198 0.0298 0.0086" rpy="0 0 0"/>
+  <parent link="m4_1"/>
+  <child link="w4_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="w3_to_m3" type="continuous">
+  <origin xyz="-0.0298 0.0198 -0.0086" rpy="0 0 0"/>
+  <parent link="m3_1"/>
+  <child link="w3_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="w2_to_m2" type="continuous">
+  <origin xyz="-0.0198 -0.0298 -0.0086" rpy="0 0 0"/>
+  <parent link="m2_1"/>
+  <child link="w2_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="w1_to_m1" type="continuous">
+  <origin xyz="0.0298 -0.0198 -0.0086" rpy="0 0 0"/>
+  <parent link="m1_1"/>
+  <child link="w1_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+</robot>

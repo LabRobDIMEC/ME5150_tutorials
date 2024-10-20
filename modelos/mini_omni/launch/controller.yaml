@@ -1,0 +1,23 @@
+mini_omni_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  w4_to_m4_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: w4_to_m4
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  w3_to_m3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: w3_to_m3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  w2_to_m2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: w2_to_m2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  w1_to_m1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: w1_to_m1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
