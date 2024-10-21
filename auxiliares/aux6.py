@@ -7,7 +7,7 @@ import time
 import numpy as np
 import cv2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../herramientas')))
-from movedronev2 import MoveDrone
+from MoveDrone import MoveDrone
 from aruco_huntingv2 import ArucoHunting
 
 # Inicializar PyBullet

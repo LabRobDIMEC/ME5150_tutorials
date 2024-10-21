@@ -7,7 +7,7 @@ import time
 import numpy as np
 import cv2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../herramientas')))
-from movedrone import MoveDrone
+from MoveDrone import MoveDrone
 
 ### funcion para obtener imagen de camara simulada
 def get_img_cam(width=240, height=240, fov=60, near=0.02, far=4, camposition=[1, 0, 1.5], camorientation = [0, -90, 0], distance=0.1):

@@ -20,11 +20,9 @@ class MoveDrone:
     def update_pose(self):
         dif = np.array(self.target_pose) - np.array(self.pose)
         self.pose += dif * self.vel * 1/240
-
-    def get_pose(self):
-        return self.pose
     
     def set_target_pose(self, pose):
+        assert len(pose) == 6, "La pose debe tener 6 elementos, [x, y, z, roll, pitch, yaw]"
         self.target_pose = pose
 
     def move_by_key(self, keys):

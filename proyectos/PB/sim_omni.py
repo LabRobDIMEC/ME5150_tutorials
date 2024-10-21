@@ -19,11 +19,11 @@ p.setTimeStep(1 / 240)
 
 planeId = p.loadURDF("plane.urdf") # Load the plane into the simulation
 
+laberintoId = p.loadURDF('../modelos/entornos/laberinto/laberinto.urdf', basePosition = [4, 0, 0])
 base_pos = [0, 0, 0.085]
 omni_id = p.loadURDF("../modelos/mini_omni/urdf/mini_omni.xacro", basePosition = base_pos, useFixedBase = True)
 
 move_omni = MoveOmni([0, 0, 0], 4)
-move_by_key = False
 
 camera_matrix = np.array([[691.,0. , 289.],[0., 690., 264.], [0., 0., 1.]])
 # hunter.set_marker_length(0.078) # Dado por cubo simulado
@@ -91,6 +91,7 @@ def update_mov():
         new_position = np.concatenate([move_omni.act_pose[:2], [0.085]])
         new_orientation = np.concatenate([ [0.0, 0.0], [move_omni.act_pose[2]]])
         new_orientation = p.getQuaternionFromEuler(new_orientation)
+
         p.addUserDebugPoints([new_position], [[0, 1, 0]], pointSize=2, lifeTime=0.01)
         p.resetBasePositionAndOrientation(omni_id, new_position, new_orientation)
         t_mov = time.time()
