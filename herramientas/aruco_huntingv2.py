@@ -33,7 +33,7 @@ class ArucoHunting():
 
         
         # Diccionario de marcadores
-        _aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
+        _aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_1000)
 
         # Carga parametros de detección
         _aruco_parameters = cv2.aruco.DetectorParameters()
