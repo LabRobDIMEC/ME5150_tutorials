@@ -12,8 +12,8 @@ class MoveOmni:
         self.vel = vel # velocidad de movimiento
         self.target_pose = np.array(act_pose) # [x, y, yaw]
         self.on_target = True
-        self.s_tran = 0.001
-        self.s_rot = 0.001
+        self.s_tran = 0.001 # desviación estándar de la translación
+        self.s_rot = 0.001 # desviación estándar de la rotación
 
     def is_on_target(self):
         dif = np.array(self.target_pose) - np.array(self.act_pose)
@@ -31,8 +31,8 @@ class MoveOmni:
             desv = np.concatenate((desv_tran, desv_rot))
         else:
             desv = np.array([0, 0, 0])
-        desplacement = np.array(dif * self.vel * 1/240)
-        new_pose = self.act_pose + desplacement + desv
+        displacement = np.array(dif * self.vel * 1/240)
+        new_pose = self.act_pose + displacement + desv
         self.act_pose = new_pose
     
     def set_target_pose(self, pose):
@@ -40,6 +40,8 @@ class MoveOmni:
         self.target_pose = np.array(pose)
 
     def move_by_key(self, keys):
+        ## No habilitado
+
         d = 0.0001 # variación de posición
         d_degrees = 0.0001 # variación de ángulo
         if keys.get(119)==1:

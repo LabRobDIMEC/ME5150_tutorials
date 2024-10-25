@@ -33,6 +33,7 @@ def get_img_cam(width=480,
 def load_maze():
     pos_laberinto = [0.5, 0.75, 0]
     or_laberinto = p.getQuaternionFromEuler([0, 0, np.pi/2])
+    # En caso de no querer cargar el laberinto, comentar la siguiente línea (lo demás funcionaría igual)
     p.loadURDF('../modelos/entornos/laberinto/laberinto.urdf', basePosition = pos_laberinto, baseOrientation = or_laberinto, useFixedBase = True)
     laberinto_origin = np.array([0.5, 0, 0])
 
