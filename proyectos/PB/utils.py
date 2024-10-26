@@ -43,5 +43,3 @@ def load_maze():
         orien = p.getQuaternionFromEuler([0, np.pi/2, np.deg2rad(float(aruco_info["rz"]))])
         id = aruco_info["id"]
         p.loadURDF(f"../modelos/objetos/Arucos/A{id}/A{id}.urdf", basePosition = pos, baseOrientation = orien, useFixedBase = True)
-        print(f"ID: {aruco_info['id']}, Pos: {pos}")
-

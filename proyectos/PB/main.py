@@ -50,8 +50,8 @@ t_cam = 0         # Controla la frecuencia de la cámara
 t_mov = 0         # Controla la frecuencia de movimiento
 img = None        # Imagen de la cámara
 next_pose = None  # Siguiente pose del robot
-target_pose = []  # Posición objetivo del robot
 
+# Funciones para actualizar la cámara y el movimiento del robot
 def update_camera():
     """
     Función que actualiza la imagen de la cámara cada 0.01 segundos
@@ -102,6 +102,7 @@ def update_mov():
     if move_omni.is_on_target() == True:
         next_pose = None # Reiniciar la siguiente posición
 
+# TODO: Función para calcular la siguiente posición del robot, por completar
 def get_next_pose(img):
     """Calcular la posición siguiente del robot, basado en la imagen de la cámara
     Args:
@@ -110,6 +111,7 @@ def get_next_pose(img):
         next_pose (np.array): [x, y, theta] siguiente posición del robot, en metros y radianes, 
                     respecto al sistema de coordenadas global.
     """
+
     global state, substate
     global position_omni   # Posición del robot en metros [x, y]
     global theta_omni # Orientación del robot en radianes [theta]
@@ -132,6 +134,7 @@ def get_next_pose(img):
     # E: Entregar la siguiente posición [x, y, theta] del robot (en coordenadas globales), usando la posición actual y la acción a realizar
     next_pose = pose_omni # Modificar 
     return next_pose
+
 
 while True:
     update_camera()
