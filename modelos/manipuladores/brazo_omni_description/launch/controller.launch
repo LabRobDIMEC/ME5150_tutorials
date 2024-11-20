@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find brazo_omni_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="brazo_omni" args="l1_to_base_link_position_controller l2_to_l1_position_controller l3_to_l2_position_controller end_effector_to_l3_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/brazo_omni/joint_states"/>
+</node>
+
+</launch>
