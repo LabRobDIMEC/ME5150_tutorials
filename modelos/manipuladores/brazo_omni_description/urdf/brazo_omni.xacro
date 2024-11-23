@@ -88,7 +88,7 @@
   </collision>
 </link>
 
-<link name="end_effector_1">
+<link name="end_effector_1" concave="yes">
   <inertial>
     <origin xyz="0.0018769943609454375 -0.02500000000000892 0.007657259532162564" rpy="0 0 0"/>
     <mass value="0.2670228230734712"/>
@@ -101,7 +101,7 @@
     </geometry>
     <material name="silver"/>
   </visual>
-  <collision>
+  <collision >
     <origin xyz="-0.0 -0.025 -0.475" rpy="0 0 0"/>
     <geometry>
       <mesh filename="package://brazo_omni_description/meshes/end_effector_1.stl" scale="0.001 0.001 0.001"/>
