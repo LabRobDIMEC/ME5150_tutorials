@@ -15,7 +15,7 @@ p.setGravity(0, 0, -10)
 p.loadURDF("plane.urdf")
 
 # Cargar la omni y el manipulador
-omni_base_pos = [0, 0, 0.12]
+omni_base_pos = [0, 0, 0.06]
 manipulador_base_pos = [0, 0, 0.19]
 
 omni_id = p.loadURDF("../modelos/mini_omni/urdf/mini_omni.xacro", 
@@ -81,9 +81,10 @@ while True:
     # omni_pos = p.getBasePositionAndOrientation(omni_id, 0)[0]
     # manipulador_pos = p.getBasePositionAndOrientation(manipulator_id)[0]
 
-    q = [p.readUserDebugParameter(slider) for slider in sliders]
-    p.setJointMotorControlArray(manipulator_id, range(num_joints), p.POSITION_CONTROL, targetPositions=q)
+    # q = [p.readUserDebugParameter(slider) for slider in sliders]
+    # p.setJointMotorControlArray(manipulator_id, range(num_joints), p.POSITION_CONTROL, targetPositions=q)
 
+    # Esto mueve la omnidireccional
     position_omni = move_omni.act_pose[:2]
     theta_omni = move_omni.act_pose[2]
 
@@ -95,6 +96,5 @@ while True:
     update_mov()
 
     p.stepSimulation()
-    # p.performCollisionDetection()
     time.sleep(1./240.)
 
