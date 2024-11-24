@@ -45,34 +45,12 @@
   </actuator>
 </transmission>
 
-<transmission name="Revolución 6_tran">
+<transmission name="eff1_to_l3_tran">
   <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Revolución 6">
+  <joint name="eff1_to_l3">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   </joint>
-  <actuator name="Revolución 6_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
-
-<transmission name="Revolución 7_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Revolución 7">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="Revolución 7_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
-
-<transmission name="Revolución 8_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="Revolución 8">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="Revolución 8_actr">
+  <actuator name="eff1_to_l3_actr">
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     <mechanicalReduction>1</mechanicalReduction>
   </actuator>

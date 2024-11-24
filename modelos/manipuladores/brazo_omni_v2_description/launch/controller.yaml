@@ -21,15 +21,7 @@ brazo_omni_v2_controller:
     type: effort_controllers/JointPositionController
     joint: end_effector_to_l3
     pid: {p: 100.0, i: 0.01, d: 10.0}
-  Revolución 6_position_controller:
+  eff1_to_l3_position_controller:
     type: effort_controllers/JointPositionController
-    joint: Revolución 6
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  Revolución 7_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: Revolución 7
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  Revolución 8_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: Revolución 8
+    joint: eff1_to_l3
     pid: {p: 100.0, i: 0.01, d: 10.0}
