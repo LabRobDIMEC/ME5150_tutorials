@@ -130,7 +130,7 @@
   </collision>
 </link>
 
-<link name="l2_1">
+<!-- <link name="l2_1">
   <inertial>
     <origin xyz="1.592451013345226e-10 -0.024999988944218367 0.06944981476509296" rpy="0 0 0"/>
     <mass value="0.7212107061266951"/>
@@ -149,9 +149,9 @@
       <mesh filename="package://brazo_omni_v2_description/meshes/l2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link>
+</link> -->
 
-<link name="l3_1">
+<!-- <link name="l3_1">
   <inertial>
     <origin xyz="1.5924509514741469e-10 -0.024999988944218378 0.06944981476509277" rpy="0 0 0"/>
     <mass value="0.7212107061266956"/>
@@ -170,8 +170,8 @@
       <mesh filename="package://brazo_omni_v2_description/meshes/l3_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link>
-
+</link>  -->
+<!-- 
 <link name="eff_1_1">
   <inertial>
     <origin xyz="0.00022190767864116318 -0.024999995073830102 0.0033250062490560728" rpy="0 0 0"/>
@@ -191,7 +191,7 @@
       <mesh filename="package://brazo_omni_v2_description/meshes/eff_1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
-</link>
+</link> -->
 
 <joint name="l1_to_base_link" type="revolute">
   <origin xyz="0.0 0.025 0.025" rpy="0 0 0"/>
@@ -230,8 +230,8 @@
   <parent link="eff_1_1"/>
   <child link="eff_2_1"/>
 </joint>
-
-<joint name="Revolución 6" type="revolute">
+<!-- 
+<joint name="Revolucion 6" type="revolute">
   <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
   <parent link="l1_1"/>
   <child link="l2_1"/>
@@ -239,7 +239,7 @@
   <limit upper="1.989675" lower="-1.989675" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Revolución 7" type="revolute">
+<joint name="Revolucion 7" type="revolute">
   <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
   <parent link="l2_1"/>
   <child link="l3_1"/>
@@ -247,12 +247,12 @@
   <limit upper="1.989675" lower="-1.989675" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Revolución 8" type="revolute">
+<joint name="Revolucion 8" type="revolute">
   <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
   <parent link="l3_1"/>
   <child link="eff_1_1"/>
   <axis xyz="-0.0 1.0 -0.0"/>
   <limit upper="2.268928" lower="-2.268928" effort="100" velocity="100"/>
-</joint>
+</joint> -->
 
 </robot>

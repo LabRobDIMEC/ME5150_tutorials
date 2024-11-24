@@ -19,7 +19,8 @@ p.loadURDF("plane.urdf")
 # Cargar el robot omni a una altura de 0.12 m
 omni_base_pos = [0, 0, 0.12]
 manipulador_base_pos = [0, 0, 0.19]
-manipulator_id = p.loadURDF("../modelos/manipuladores/brazo_omni_description/urdf/brazo_omni.xacro", 
+
+manipulator_id = p.loadURDF("D:/Users/leslie/GitHub/ME5150_tutorials/modelos/manipuladores/brazo_omni_v2_description/urdf/brazo_omni_v2.xacro", 
                             basePosition = manipulador_base_pos, 
                             useFixedBase = True)
 
