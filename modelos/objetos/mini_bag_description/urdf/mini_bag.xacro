@@ -15,7 +15,9 @@
     <geometry>
       <mesh filename="package://mini_bag_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="pink">
+        <color rgba="255 0 132 0.9" />
+    </material>
   </visual>
   <collision concave="yes">
     <origin xyz="0 0 0" rpy="0 0 0"/>

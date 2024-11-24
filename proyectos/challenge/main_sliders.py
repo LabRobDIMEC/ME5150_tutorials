@@ -1,6 +1,7 @@
 #Importacion de librerias
 import os
 import sys
+import cv2
 import time
 import pybullet as p
 import pybullet_data
@@ -22,6 +23,7 @@ omni_id = p.loadURDF("../modelos/mini_omni/urdf/mini_omni.xacro",
                             basePosition = omni_base_pos, 
                             useFixedBase = True, 
                             globalScaling = 1.5)
+
 manipulator_id = p.loadURDF("../modelos/manipuladores/brazo_omni_v2_description/urdf/brazo_omni_v2.xacro", 
                             basePosition = manipulador_base_pos, 
                             useFixedBase = True)
@@ -36,12 +38,12 @@ p.loadURDF("../modelos/objetos/vaso.urdf", basePosition = [0.9, 0.2, 0.5])
 
 num_joints = p.getNumJoints(manipulator_id) - 1
 move_omni = MoveOmni([0, 0, 0], vel = 5)
+sliders = [p.addUserDebugParameter(f"Link {i+1}", -np.pi, np.pi, 0) for i in range(num_joints)]
+slider_omni = [p.addUserDebugParameter("x_pos", -2, 2, 0), p.addUserDebugParameter("y_pos", -1, 1, 0), p.addUserDebugParameter("w", -2, 2, 0)]
 
-# Variables con valores iniciales
+# Variables con valores iniciales, pueden usar estas y/o crear las suyas propias
 t_mov = 0         # Controla la frecuencia del movimiento
-next_pose = None  # Siguiente pose del robot base
-
-list_of_next_poses = [[0.5, 0, 0, None, None, None]] # Completar con las posiciones objetivo [x0, y0, theta0, x1, y1, z1] en metros y radianes
+next_pose = None  # Siguiente pose del robot
 
 def update_mov():
     """
@@ -78,9 +80,8 @@ def update_mov():
 
 while True:
     
-    # omni_pos = p.getBasePositionAndOrientation(omni_id, 0)[0]
-    # manipulador_pos = p.getBasePositionAndOrientation(manipulator_id)[0]
-
+    omni_pos = p.getBasePositionAndOrientation(omni_id, 0)[0]
+    manipulador_pos = p.getBasePositionAndOrientation(manipulator_id)[0]
     q = [p.readUserDebugParameter(slider) for slider in sliders]
     p.setJointMotorControlArray(manipulator_id, range(num_joints), p.POSITION_CONTROL, targetPositions=q)
 
@@ -88,7 +89,7 @@ while True:
     theta_omni = move_omni.act_pose[2]
 
     if next_pose is None:
-        next_pose = list_of_next_poses.pop(0)
+        next_pose = [p.readUserDebugParameter(slider) for slider in slider_omni]
         if next_pose is not None or next_pose != 0.0:
             move_omni.set_target_pose(next_pose)
 
