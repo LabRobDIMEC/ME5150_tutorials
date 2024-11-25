@@ -38,7 +38,7 @@ p.loadURDF("../modelos/objetos/vaso.urdf", basePosition = [0.9, 0.2, 0.5])
 
 num_joints = p.getNumJoints(manipulator_id) - 1
 move_omni = MoveOmni([0, 0, 0], vel = 5)
-sliders = [p.addUserDebugParameter(f"Link {i+1}", -np.pi, np.pi, 0) for i in range(num_joints)]
+sliders = [p.addUserDebugParameter(f"Link {i+1}", -0.5, np.pi, 0) for i in range(num_joints)]
 slider_omni = [p.addUserDebugParameter("x_pos", -2, 2, 0), p.addUserDebugParameter("y_pos", -1, 1, 0), p.addUserDebugParameter("w", -2, 2, 0)]
 
 # Variables con valores iniciales, pueden usar estas y/o crear las suyas propias
@@ -82,6 +82,7 @@ while True:
     
     omni_pos = p.getBasePositionAndOrientation(omni_id, 0)[0]
     manipulador_pos = p.getBasePositionAndOrientation(manipulator_id)[0]
+    
     q = [p.readUserDebugParameter(slider) for slider in sliders]
     p.setJointMotorControlArray(manipulator_id, range(num_joints), p.POSITION_CONTROL, targetPositions=q)
 
@@ -93,8 +94,8 @@ while True:
         if next_pose is not None or next_pose != 0.0:
             move_omni.set_target_pose(next_pose)
 
+    print(repr(np.around(np.concatenate([next_pose, q]), decimals = 3)))
     update_mov()
-
     p.stepSimulation()
     time.sleep(1./240.)
 
