@@ -1,0 +1,198 @@
+<?xml version="1.0" ?>
+<robot name="brazo_omni_v3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find brazo_omni_v3_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find brazo_omni_v3_description)/urdf/brazo_omni_v3.trans" />
+<xacro:include filename="$(find brazo_omni_v3_description)/urdf/brazo_omni_v3.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.005540193790928124 7.370553273120713e-18 0.00724588623657782" rpy="0 0 0"/>
+    <mass value="0.6054102338350126"/>
+    <inertia ixx="0.000419" iyy="0.000276" izz="0.00063" ixy="-0.0" iyz="-0.0" ixz="-8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l1_1">
+  <inertial>
+    <origin xyz="1.5924509824096877e-10 -0.024999988944218354 0.06944981476509293" rpy="0 0 0"/>
+    <mass value="0.7212107061266948"/>
+    <inertia ixx="0.00243" iyy="0.002364" izz="0.000137" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.025 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/l1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.025 -0.025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/l1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l2_1">
+  <inertial>
+    <origin xyz="1.592451013345226e-10 -0.024999988944218367 0.06944981476509296" rpy="0 0 0"/>
+    <mass value="0.7212107061266951"/>
+    <inertia ixx="0.00243" iyy="0.002364" izz="0.000137" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.025 -0.175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/l2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.025 -0.175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/l2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l3_1">
+  <inertial>
+    <origin xyz="1.5924509514741469e-10 -0.024999988944218378 0.06944981476509277" rpy="0 0 0"/>
+    <mass value="0.7212107061266956"/>
+    <inertia ixx="0.00243" iyy="0.002364" izz="0.000137" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.025 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/l3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.025 -0.325" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/l3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eff1_1">
+  <inertial>
+    <origin xyz="0.00021225847043200103 -0.024999995084802933 0.0033905000237242078" rpy="0 0 0"/>
+    <mass value="0.2400849439750475"/>
+    <inertia ixx="7.1e-05" iyy="4.9e-05" izz="4.4e-05" ixy="0.0" iyz="-0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.025 -0.475" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/eff1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.025 -0.475" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/eff1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eff2_1">
+  <inertial>
+    <origin xyz="-0.006622721772453566 -2.385833209151547e-13 0.011738496925933317" rpy="0 0 0"/>
+    <mass value="0.016665776391530194"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.009226 0.0 -0.525981" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/eff2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.009226 0.0 -0.525981" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/eff2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="eff3_1">
+  <inertial>
+    <origin xyz="-0.016710263458540642 -7.133010761832445e-19 0.005381958223905525" rpy="0 0 0"/>
+    <mass value="0.024436387478738532"/>
+    <inertia ixx="1e-06" iyy="3e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.005 -0.0 -0.507321" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/eff3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.005 -0.0 -0.507321" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://brazo_omni_v3_description/meshes/eff3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="l1_to_base_link" type="revolute">
+  <origin xyz="0.0 0.025 0.025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="l2_to_l1" type="revolute">
+  <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
+  <parent link="l1_1"/>
+  <child link="l2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.989675" lower="-1.989675" effort="100" velocity="100"/>
+</joint>
+
+<joint name="l3_to_l2" type="revolute">
+  <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
+  <parent link="l2_1"/>
+  <child link="l3_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.989675" lower="-1.989675" effort="100" velocity="100"/>
+</joint>
+
+<joint name="eff1_to_l3" type="revolute">
+  <origin xyz="0.0 0.0 0.15" rpy="0 0 0"/>
+  <parent link="l3_1"/>
+  <child link="eff1_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="2.268928" lower="-2.007129" effort="100" velocity="100"/>
+</joint>
+
+<joint name="eff2_to_eff1" type="fixed">
+  <origin xyz="0.009226 -0.025 0.050981" rpy="0 0 0"/>
+  <parent link="eff1_1"/>
+  <child link="eff2_1"/>
+</joint>
+
+<joint name="eff3_to_eff1" type="fixed">
+  <origin xyz="-0.005 -0.025 0.032321" rpy="0 0 0"/>
+  <parent link="eff1_1"/>
+  <child link="eff3_1"/>
+</joint>
+
+</robot>
