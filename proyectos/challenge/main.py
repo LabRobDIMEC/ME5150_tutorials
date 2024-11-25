@@ -22,7 +22,7 @@ omni_id = p.loadURDF("../modelos/mini_omni/urdf/mini_omni.xacro",
                             basePosition = omni_base_pos, 
                             useFixedBase = True, 
                             globalScaling = 1.5)
-manipulator_id = p.loadURDF("../modelos/manipuladores/brazo_omni_v2_description/urdf/brazo_omni_v2.xacro", 
+manipulator_id = p.loadURDF("../modelos/manipuladores/brazo_omni_v3_description/urdf/brazo_omni_v3.xacro", 
                             basePosition = manipulador_base_pos, 
                             useFixedBase = True)
 
