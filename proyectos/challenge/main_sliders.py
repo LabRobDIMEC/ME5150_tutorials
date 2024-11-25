@@ -8,7 +8,7 @@ import pybullet_data
 import numpy as np
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../herramientas')))
-from MoveOmni import MoveOmni
+from moveomni import MoveOmni
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
